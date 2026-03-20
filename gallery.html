@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Our Memories</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script src="bgmusic.js"></script>
+<h1>Our Beautiful Memories ❤️</h1>
+
+<div class="gallery" id="gallery"></div>
+
+<button onclick="next()">Next</button>
+
+<div id="viewer" class="viewer">
+
+<span class="close" onclick="closeViewer()">✖</span>
+
+<span class="arrow left" onclick="prevPhoto()">❮</span>
+
+<img id="viewerImg">
+
+<span class="arrow right" onclick="nextPhoto()">❯</span>
+
+<p id="viewerText"></p>
+
+</div>
+<span class="close" onclick="closeViewer()">✖</span>
+
+<img id="viewerImg">
+
+<p id="viewerText"></p>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+
+function next(){
+
+window.location="reasons.html";
+
+}
+
+</script>
+
+<script src="hearts.js"></script>
+
+</body>
+</html>

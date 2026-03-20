@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<title>Birthday Surprise</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script src="bgmusic.js"></script>
+
+<h1>Enter the Secret Password ❤️</h1>
+
+<input type="password" id="pass" placeholder="Hint: Our special thing">
+
+<br>
+
+<button onclick="checkPass()">Unlock</button>
+
+<p id="msg"></p>
+
+<script>
+
+function checkPass(){
+
+let p=document.getElementById("pass").value;
+
+if(p==="shravani"){
+
+window.location="main.html";
+
+}
+
+else{
+
+document.getElementById("msg").innerText="Wrong password 😜 Try again";
+
+}
+
+}
+
+</script>
+
+<script src="hearts.js"></script>
+
+</body>
+</html>
