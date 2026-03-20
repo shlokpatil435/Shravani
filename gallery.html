@@ -12,17 +12,14 @@
 </head>
 
 <body>
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
 
-<script src="bgmusic.js"></script>
 <h1>Our Beautiful Memories ❤️</h1>
 
 <div class="gallery" id="gallery"></div>
 
 <button onclick="next()">Next</button>
 
+<!-- ✅ SINGLE VIEWER (fix) -->
 <div id="viewer" class="viewer">
 
 <span class="close" onclick="closeViewer()">✖</span>
@@ -36,24 +33,13 @@
 <p id="viewerText"></p>
 
 </div>
-<span class="close" onclick="closeViewer()">✖</span>
-
-<img id="viewerImg">
-
-<p id="viewerText"></p>
-
-</div>
 
 <script src="script.js"></script>
 
 <script>
-
 function next(){
-
 window.location="reasons.html";
-
 }
-
 </script>
 
 <script src="hearts.js"></script>
