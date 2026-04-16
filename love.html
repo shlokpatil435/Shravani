@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Love 💝</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* 💖 BACKGROUND */
+html, body{
+margin:0;
+padding:0;
+height:100%;
+width:100%;
+overflow:hidden;
+background: linear-gradient(180deg,#e88c8c,#f2aaaa,#f5bcbc);
+font-family:Arial;
+}
+
+/* 📸 PHOTO */
+.photo{
+position:absolute;
+width:100px;
+height:100px;
+background-size:cover;
+background-position:center;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+transition:all 2s ease;
+}
+
+/* ❤️ TEXT */
+.text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:45px;
+font-weight:bold;
+z-index:5;
+color:#c2185b;
+opacity:0;
+transition:1.5s;
+}
+
+.name{
+top:60%;
+font-size:28px;
+}
+
+/* 💓 ANIMATION */
+.pulse{
+animation:pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse{
+from{transform:translate(-50%,-50%) scale(1);}
+to{transform:translate(-50%,-50%) scale(1.05);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="container"></div>
+
+<div class="text" id="loveText">I LOVE YOU ❤️</div>
+<div class="text name" id="nameText">❤️ Shravani ❤️</div>
+
+<script>
+
+// 🎯 ALL IMAGES
+let images = [
+"S (1).jpeg","S (2).jpeg","S (3).jpeg","S (4).jpeg","S (5).jpeg",
+"S (6).jpeg","S (7).jpeg","S (8).jpeg","S (9).jpeg","S (10).jpeg",
+"S (11).jpeg","S (12).jpeg","S (13).jpeg","S (14).jpeg","S (15).jpeg",
+"S (16).jpeg","S (17).jpeg","S (18).jpeg","S (19).jpeg","S (20).jpeg",
+"S (21).jpeg","S (22).jpeg","S (23).jpeg","S (24).jpeg","S (25).jpeg",
+"S (26).jpeg","S (27).jpeg","S (28).jpeg","S (29).jpeg","S (30).jpeg"
+];
+
+// 🔀 SHUFFLE FUNCTION
+function shuffle(arr){
+for(let i=arr.length-1;i>0;i--){
+let j=Math.floor(Math.random()*(i+1));
+[arr[i], arr[j]] = [arr[j], arr[i]];
+}
+}
+
+shuffle(images); // 👉 random but no repeat
+
+const container = document.getElementById("container");
+let photos = [];
+
+// 🎬 CREATE PHOTOS (NO REPEAT)
+for(let i=0;i<images.length;i++){
+
+let div = document.createElement("div");
+div.className = "photo";
+
+div.style.backgroundImage = `url("${images[i]}")`;
+
+div.style.top = Math.random()*100 + "vh";
+div.style.left = Math.random()*100 + "vw";
+
+container.appendChild(div);
+photos.push(div);
+
+}
+
+// 🎬 FLOATING
+let float = setInterval(()=>{
+photos.forEach(p=>{
+p.style.top = Math.random()*100 + "vh";
+p.style.left = Math.random()*100 + "vw";
+});
+},2000);
+
+// 🎯 GATHER WITH CENTER SPACE
+setTimeout(()=>{
+clearInterval(float);
+
+photos.forEach(p=>{
+
+let x = Math.random()*100;
+let y = Math.random()*100;
+
+// ❗ center avoid zone
+if(x > 30 && x < 70 && y > 30 && y < 70){
+x = Math.random() < 0.5 ? 10 : 90;
+y = Math.random() < 0.5 ? 10 : 90;
+}
+
+p.style.top = y + "vh";
+p.style.left = x + "vw";
+p.style.transform = "scale(0.9)";
+
+});
+
+},6000);
+
+// ❤️ TEXT SHOW
+setTimeout(()=>{
+let t = document.getElementById("loveText");
+t.style.opacity = "1";
+t.classList.add("pulse");
+},7000);
+
+// ❤️ NAME SHOW
+setTimeout(()=>{
+let n = document.getElementById("nameText");
+n.style.opacity = "1";
+n.classList.add("pulse");
+},8500);
+
+</script>
+</body>
+</html>

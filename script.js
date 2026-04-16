@@ -9,7 +9,7 @@ let currentIndex = 0;
 const quotes = [
 
 "Your smile here could brighten anyone’s day ❤️",
-"You look truly beautiful in this moment.",
+"You look truly beautiful this moment.",
 "This picture shows how special you really are.",
 "Your happiness in this photo feels so pure.",
 "The way you smile here is simply magical.",
@@ -41,11 +41,14 @@ const quotes = [
 
 ];
 
+
+// 🔥 LOAD IMAGES (lazy loading added)
 for(let i=1;i<=30;i++){
 
 let img=document.createElement("img");
 
 img.src=`S (${i}).jpeg`;
+img.loading="lazy"; // ✅ important
 
 img.onclick=function(){
 
@@ -59,6 +62,8 @@ gallery.appendChild(img);
 
 }
 
+
+// 🔥 OPEN VIEWER (smooth + preload)
 function openViewer(){
 
 viewer.style.display="flex";
@@ -67,14 +72,23 @@ viewerImg.src=`S (${currentIndex+1}).jpeg`;
 
 viewerText.innerText=quotes[currentIndex];
 
+// 🔥 preload next image (no lag)
+let next = new Image();
+let nextIndex = (currentIndex + 1) % 30;
+next.src = `S (${nextIndex+1}).jpeg`;
+
 }
 
+
+// CLOSE
 function closeViewer(){
 
 viewer.style.display="none";
 
 }
 
+
+// NEXT
 function nextPhoto(){
 
 currentIndex++;
@@ -87,6 +101,8 @@ openViewer();
 
 }
 
+
+// PREVIOUS
 function prevPhoto(){
 
 currentIndex--;
@@ -98,3 +114,22 @@ currentIndex=29;
 openViewer();
 
 }
+
+
+// 🔥 SWIPE SUPPORT (mobile smooth)
+let startX = 0;
+
+viewer.addEventListener("touchstart", e=>{
+startX = e.touches[0].clientX;
+});
+
+viewer.addEventListener("touchend", e=>{
+let endX = e.changedTouches[0].clientX;
+
+if(startX - endX > 50){
+nextPhoto();
+}
+else if(endX - startX > 50){
+prevPhoto();
+}
+});
