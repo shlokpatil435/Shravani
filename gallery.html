@@ -1,48 +1,333 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 
-<title>Our Memories</title>
-
+<title>Our Gallery 💝</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+/* 💖 CLEAN BACKGROUND (NO STRIPES) */
+html, body{
+margin:0;
+padding:0;
+font-family:Arial;
+
+/* smooth pink */
+background: linear-gradient(180deg, #ea8d8d 0%, #f5bcbc 100%);
+background-attachment: fixed;
+overflow-x:hidden;
+}
+
+/* 📸 GRID */
+#gallery{
+display:grid;
+grid-template-columns: repeat(auto-fill,minmax(110px,1fr));
+gap:12px;
+padding:12px;
+}
+
+/* IMAGE STYLE */
+#gallery img{
+width:100%;
+height:110px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.2);
+cursor:pointer;
+transition:0.3s;
+}
+
+#gallery img:hover{
+transform:scale(1.05);
+}
+
+/* ➕ ADD BUTTON */
+.add-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff2e6e;
+color:white;
+border:none;
+border-radius:50%;
+width:60px;
+height:60px;
+font-size:30px;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+cursor:pointer;
+z-index:5;
+}
+
+/* 🔍 VIEWER */
+#viewer{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+display:none;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+}
+
+#viewer img{
+max-width:90%;
+max-height:60%;
+border-radius:12px;
+}
+
+#viewerText{
+color:white;
+margin-top:15px;
+text-align:center;
+padding:0 15px;
+font-size:16px;
+}
+
+/* BUTTONS */
+.controls{
+margin-top:15px;
+}
+
+.controls button{
+margin:5px;
+padding:10px 15px;
+border:none;
+border-radius:6px;
+background:#ff2e6e;
+color:white;
+font-size:16px;
+}
+
+/* CLOSE */
+.close{
+position:absolute;
+top:20px;
+right:20px;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<h1>Our Beautiful Memories ❤️</h1>
+<!-- 📸 GALLERY -->
+<div id="gallery"></div>
 
-<div class="gallery" id="gallery"></div>
+<!-- ➕ ADD PHOTO -->
+<input type="file" id="fileInput" accept="image/*" multiple style="display:none">
+<button class="add-btn" onclick="document.getElementById('fileInput').click()">+</button>
 
-<button onclick="next()">Next</button>
+<!-- 🔍 VIEWER -->
+<div id="viewer">
 
-<!-- ✅ SINGLE VIEWER (fix) -->
-<div id="viewer" class="viewer">
-
-<span class="close" onclick="closeViewer()">✖</span>
-
-<span class="arrow left" onclick="prevPhoto()">❮</span>
+<div class="close" onclick="closeViewer()">✖</div>
 
 <img id="viewerImg">
+<div id="viewerText"></div>
 
-<span class="arrow right" onclick="nextPhoto()">❯</span>
-
-<p id="viewerText"></p>
+<div class="controls">
+<button onclick="prevPhoto()">⬅</button>
+<button onclick="nextPhoto()">➡</button>
+</div>
 
 </div>
 
-<script src="script.js"></script>
-
 <script>
-function next(){
-window.location="reasons.html";
-}
-</script>
 
-<script src="hearts.js"></script>
+const gallery = document.getElementById("gallery");
+const viewer = document.getElementById("viewer");
+const viewerImg = document.getElementById("viewerImg");
+const viewerText = document.getElementById("viewerText");
+
+let images = [];
+let currentIndex = 0;
+
+const reasons = [
+
+"You make my day better just by being in it ❤️",
+"Your smile is my favorite thing in the world",
+"I feel lucky every single day because of you",
+"You understand me like no one else",
+"Your happiness matters to me the most",
+"You make even normal moments special",
+"I can be my true self around you",
+"You bring peace into my life",
+"Your voice is my comfort",
+"You make me want to become a better person",
+
+"You are the reason behind my smile",
+"You make everything feel right",
+"You care about me in ways no one else does",
+"You are my safe place",
+"You make my life more meaningful",
+"Your presence itself is enough",
+"You always support me",
+"You make me feel important",
+"You bring positivity into my life",
+"You make me feel loved",
+
+"You are always on my mind",
+"You make my heart feel full",
+"You are my favorite person",
+"You make even bad days better",
+"You make me feel complete",
+"You are my happiness",
+"You are my strength",
+"You make life beautiful",
+"You are my peace",
+"You make everything worth it",
+
+"You are my dream come true",
+"You make me believe in love",
+"You make my life brighter",
+"You are my motivation",
+"You make me smile without reason",
+"You are my forever person",
+"You make me feel special",
+"You are my comfort zone",
+"You make me feel alive",
+"You are my heart",
+
+"You make me laugh like no one else",
+"You understand my silence",
+"You are my favorite thought",
+"You make everything better",
+"You are my reason to smile",
+"You make me feel lucky",
+"You are my sunshine",
+"You make life easy",
+"You are my happiness source",
+"You make me feel complete",
+
+"You are my best friend",
+"You make my world better",
+"You are my love story",
+"You make me feel strong",
+"You are my everything",
+"You make me feel safe",
+"You are my forever",
+"You make my heart happy",
+"You are my joy",
+"You make life worth living",
+
+"You are my dream",
+"You make me feel loved deeply",
+"You are my support system",
+"You make me feel calm",
+"You are my smile",
+"You make me feel special every day",
+"You are my reason to wake up happy",
+"You make me feel understood",
+"You are my life",
+"You make everything magical",
+
+"You are my heartbeat",
+"You make me feel at home",
+"You are my world",
+"You make me feel secure",
+"You are my happiness reason",
+"You make my life meaningful",
+"You are my forever happiness",
+"You make me feel complete always",
+"You are my love",
+"You make everything perfect",
+
+"And honestly… I don’t need 100 reasons…",
+"Because loving you is the easiest thing I’ve ever done ❤️"
+
+];
+// 📸 LOAD DEFAULT IMAGES (folder madhe)
+for(let i=1;i<=30;i++){
+addImage(`S (${i}).jpeg`);
+}
+
+// ➕ ADD IMAGE FUNCTION
+function addImage(src){
+
+images.push(src);
+
+let img=document.createElement("img");
+img.src=src;
+img.loading="lazy";
+
+img.onclick=function(){
+currentIndex = images.indexOf(src);
+openViewer();
+};
+
+gallery.appendChild(img);
+}
+
+// 📂 FILE INPUT (mobile gallery open)
+document.getElementById("fileInput").addEventListener("change", function(e){
+
+let files = e.target.files;
+
+for(let file of files){
+
+let reader = new FileReader();
+
+reader.onload = function(event){
+addImage(event.target.result);
+};
+
+reader.readAsDataURL(file);
+
+}
+
+});
+
+// 🔍 OPEN VIEWER
+function openViewer(){
+
+viewer.style.display="flex";
+
+viewerImg.src = images[currentIndex];
+viewerText.innerText = reasons[currentIndex % reasons.length];
+
+}
+
+// CLOSE
+function closeViewer(){
+viewer.style.display="none";
+}
+
+// NEXT
+function nextPhoto(){
+currentIndex = (currentIndex + 1) % images.length;
+openViewer();
+}
+
+// PREV
+function prevPhoto(){
+currentIndex = (currentIndex - 1 + images.length) % images.length;
+openViewer();
+}
+
+// 👉 SWIPE
+let startX = 0;
+
+viewer.addEventListener("touchstart", e=>{
+startX = e.touches[0].clientX;
+});
+
+viewer.addEventListener("touchend", e=>{
+let endX = e.changedTouches[0].clientX;
+
+if(startX - endX > 50) nextPhoto();
+else if(endX - startX > 50) prevPhoto();
+});
+
+</script>
 
 </body>
 </html>
