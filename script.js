@@ -6,44 +6,104 @@ const viewerText = document.getElementById("viewerText");
 
 let currentIndex = 0;
 
-const quotes = [
+const reasons = [
 
-"Your smile here could brighten anyone’s day ❤️",
-"You look truly beautiful this moment.",
-"This picture shows how special you really are.",
-"Your happiness in this photo feels so pure.",
-"The way you smile here is simply magical.",
-"You look amazing without even trying.",
-"This picture perfectly shows your beautiful energy.",
-"Your eyes here look so full of life.",
-"Your smile has a warmth that makes everything better.",
-"This moment captures your beautiful personality.",
-"You look so graceful in this photo.",
-"This picture shows how naturally beautiful you are.",
-"Your confidence here is inspiring.",
-"Your smile makes this photo perfect.",
-"You have a charm that lights up every picture.",
-"This photo shows how effortlessly beautiful you are.",
-"You look so calm and happy here.",
-"Your presence alone makes this moment special.",
-"This picture shows your beautiful heart.",
-"You have such a lovely aura in this photo.",
-"You look stunning in this moment.",
-"This smile is something the world should see more often.",
-"You carry such a beautiful energy with you.",
-"This photo captures your natural beauty perfectly.",
-"You look so peaceful and happy here.",
-"You have a glow that makes every photo better.",
-"This picture reflects how amazing you truly are.",
-"You have a smile that feels genuine and warm.",
-"This moment shows your beautiful soul.",
-"And honestly… every picture of you becomes beautiful simply because you are in it ❤️"
+"You make my day better just by being in it ❤️",
+"Your smile is my favorite thing in the world",
+"I feel lucky every single day because of you",
+"You understand me like no one else",
+"Your happiness matters to me the most",
+"You make even normal moments special",
+"I can be my true self around you",
+"You bring peace into my life",
+"Your voice is my comfort",
+"You make me want to become a better person",
+
+"You are the reason behind my smile",
+"You make everything feel right",
+"You care about me in ways no one else does",
+"You are my safe place",
+"You make my life more meaningful",
+"Your presence itself is enough",
+"You always support me",
+"You make me feel important",
+"You bring positivity into my life",
+"You make me feel loved",
+
+"You are always on my mind",
+"You make my heart feel full",
+"You are my favorite person",
+"You make even bad days better",
+"You make me feel complete",
+"You are my happiness",
+"You are my strength",
+"You make life beautiful",
+"You are my peace",
+"You make everything worth it",
+
+"You are my dream come true",
+"You make me believe in love",
+"You make my life brighter",
+"You are my motivation",
+"You make me smile without reason",
+"You are my forever person",
+"You make me feel special",
+"You are my comfort zone",
+"You make me feel alive",
+"You are my heart",
+
+"You make me laugh like no one else",
+"You understand my silence",
+"You are my favorite thought",
+"You make everything better",
+"You are my reason to smile",
+"You make me feel lucky",
+"You are my sunshine",
+"You make life easy",
+"You are my happiness source",
+"You make me feel complete",
+
+"You are my best friend",
+"You make my world better",
+"You are my love story",
+"You make me feel strong",
+"You are my everything",
+"You make me feel safe",
+"You are my forever",
+"You make my heart happy",
+"You are my joy",
+"You make life worth living",
+
+"You are my dream",
+"You make me feel loved deeply",
+"You are my support system",
+"You make me feel calm",
+"You are my smile",
+"You make me feel special every day",
+"You are my reason to wake up happy",
+"You make me feel understood",
+"You are my life",
+"You make everything magical",
+
+"You are my heartbeat",
+"You make me feel at home",
+"You are my world",
+"You make me feel secure",
+"You are my happiness reason",
+"You make my life meaningful",
+"You are my forever happiness",
+"You make me feel complete always",
+"You are my love",
+"You make everything perfect",
+
+"And honestly… I don’t need 100 reasons…",
+"Because loving you is the easiest thing I’ve ever done ❤️"
 
 ];
 
-
 // 🔥 LOAD IMAGES (lazy loading added)
-for(let i=1;i<=30;i++){
+for(let i=1;i<=130;i++)
+{
 
 let img=document.createElement("img");
 

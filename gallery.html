@@ -1,333 +1,328 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <title>Our Memories 💝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@600;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rose: #c9485b;
+      --gold: #c9a96e;
+      --soft-gold: #e8d5b0;
+      --blush: #f7d6d0;
+      --dark: #1a0a0d;
+    }
 
-<title>Our Gallery 💝</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
+    html, body {
+      background: var(--dark);
+      font-family: 'Cormorant Garamond', serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
 
-/* 💖 CLEAN BACKGROUND (NO STRIPES) */
-html, body{
-margin:0;
-padding:0;
-font-family:Arial;
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(201,72,91,0.10) 0%, transparent 50%),
+        linear-gradient(180deg, #1a0a0d 0%, #2d0f18 50%, #1a0a0d 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* smooth pink */
-background: linear-gradient(180deg, #ea8d8d 0%, #f5bcbc 100%);
-background-attachment: fixed;
-overflow-x:hidden;
-}
+    .page-title {
+      text-align: center;
+      padding: 50px 20px 30px;
+      position: relative;
+      z-index: 1;
+    }
 
-/* 📸 GRID */
-#gallery{
-display:grid;
-grid-template-columns: repeat(auto-fill,minmax(110px,1fr));
-gap:12px;
-padding:12px;
-}
+    .page-title h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(2rem, 7vw, 4rem);
+      color: transparent;
+      background: linear-gradient(135deg, #f7d6d0, #c9a96e, #f7d6d0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 200%;
+      animation: shimmer 3s ease infinite;
+    }
 
-/* IMAGE STYLE */
-#gallery img{
-width:100%;
-height:110px;
-object-fit:cover;
-border-radius:12px;
-box-shadow:0 4px 10px rgba(0,0,0,0.2);
-cursor:pointer;
-transition:0.3s;
-}
+    @keyframes shimmer {
+      0%, 100% { background-position: 0%; }
+      50% { background-position: 100%; }
+    }
 
-#gallery img:hover{
-transform:scale(1.05);
-}
+    .page-title .sub {
+      font-style: italic;
+      color: rgba(247,214,208,0.45);
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      margin-top: 8px;
+    }
 
-/* ➕ ADD BUTTON */
-.add-btn{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#ff2e6e;
-color:white;
-border:none;
-border-radius:50%;
-width:60px;
-height:60px;
-font-size:30px;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-cursor:pointer;
-z-index:5;
-}
+    .divider {
+      width: 100px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 20px auto;
+    }
 
-/* 🔍 VIEWER */
-#viewer{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.95);
-display:none;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-z-index:10;
-}
+    /* GRID */
+    #gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 10px;
+      padding: 10px 14px 100px;
+      position: relative;
+      z-index: 1;
+    }
 
-#viewer img{
-max-width:90%;
-max-height:60%;
-border-radius:12px;
-}
+    #gallery img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      filter: brightness(0.92) saturate(1.1);
+      border: 1px solid rgba(201,169,110,0.08);
+    }
 
-#viewerText{
-color:white;
-margin-top:15px;
-text-align:center;
-padding:0 15px;
-font-size:16px;
-}
+    #gallery img:hover {
+      transform: scale(1.07) translateY(-4px);
+      box-shadow: 0 15px 40px rgba(201,72,91,0.3), 0 0 0 1px rgba(201,169,110,0.25);
+      filter: brightness(1.05) saturate(1.2);
+    }
 
-/* BUTTONS */
-.controls{
-margin-top:15px;
-}
+    /* NEXT BUTTON */
+    .next-wrap {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
 
-.controls button{
-margin:5px;
-padding:10px 15px;
-border:none;
-border-radius:6px;
-background:#ff2e6e;
-color:white;
-font-size:16px;
-}
+    .next-btn {
+      padding: 16px 45px;
+      border: 1px solid rgba(201,169,110,0.4);
+      border-radius: 50px;
+      background: linear-gradient(135deg, rgba(201,72,91,0.35), rgba(139,26,46,0.5));
+      color: var(--soft-gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      backdrop-filter: blur(20px);
+      transition: all 0.4s ease;
+      box-shadow: 0 0 30px rgba(201,72,91,0.2);
+    }
 
-/* CLOSE */
-.close{
-position:absolute;
-top:20px;
-right:20px;
-font-size:28px;
-color:white;
-cursor:pointer;
-}
+    .next-btn:hover {
+      transform: scale(1.05) translateY(-2px);
+      box-shadow: 0 0 50px rgba(201,72,91,0.4);
+      border-color: var(--gold);
+      color: #fff;
+    }
 
-</style>
+    /* VIEWER */
+    #viewer {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 1, 2, 0.97);
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+      animation: fadeIn 0.3s ease;
+    }
 
+    #viewer.active { display: flex; }
+
+    #viewer img {
+      max-width: 88%;
+      max-height: 56vh;
+      border-radius: 18px;
+      box-shadow: 0 0 80px rgba(201,72,91,0.25);
+      object-fit: contain;
+    }
+
+    #viewerCaption {
+      margin-top: 22px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+      color: rgba(247,214,208,0.75);
+      text-align: center;
+      padding: 0 24px;
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    #viewerCounter {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: rgba(201,169,110,0.4);
+      letter-spacing: 0.2em;
+    }
+
+    .viewer-controls {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .v-btn {
+      padding: 12px 28px;
+      border: 1px solid rgba(201,169,110,0.25);
+      border-radius: 50px;
+      background: rgba(255,255,255,0.04);
+      color: var(--blush);
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      backdrop-filter: blur(10px);
+    }
+
+    .v-btn:hover {
+      background: rgba(201,72,91,0.25);
+      border-color: rgba(201,72,91,0.5);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 22px;
+      font-size: 24px;
+      color: rgba(247,214,208,0.3);
+      cursor: pointer;
+      transition: color 0.3s;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .close-btn:hover { color: var(--rose); }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(-10deg); opacity: 0.7; }
+      100% { transform: translateY(110vh) rotate(10deg); opacity: 0; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- 📸 GALLERY -->
-<div id="gallery"></div>
+  <div class="page-title">
+    <h1>Our Memories 💝</h1>
+    <p class="sub">every photo, a moment i treasure</p>
+    <div class="divider"></div>
+  </div>
 
-<!-- ➕ ADD PHOTO -->
-<input type="file" id="fileInput" accept="image/*" multiple style="display:none">
-<button class="add-btn" onclick="document.getElementById('fileInput').click()">+</button>
+  <div id="gallery"></div>
 
-<!-- 🔍 VIEWER -->
-<div id="viewer">
+  <div class="next-wrap">
+    <button class="next-btn" onclick="goNext()">Read My Heart &nbsp;→</button>
+  </div>
 
-<div class="close" onclick="closeViewer()">✖</div>
+  <!-- VIEWER -->
+  <div id="viewer">
+    <button class="close-btn" onclick="closeViewer()">✕</button>
+    <img id="viewerImg" src="" alt="">
+    <div id="viewerCaption"></div>
+    <div id="viewerCounter"></div>
+    <div class="viewer-controls">
+      <button class="v-btn" onclick="prevPhoto()">←</button>
+      <button class="v-btn" onclick="nextPhoto()">→</button>
+    </div>
+  </div>
 
-<img id="viewerImg">
-<div id="viewerText"></div>
+  <script>
+    const reasons = [
+      "Your smile is the first thing I think of every morning ❤️",
+      "The way you laugh makes everything feel lighter",
+      "I feel lucky every single day because of you",
+      "You understand me like no one else ever has",
+      "Your happiness is all that matters to me",
+      "You make even the smallest moments feel magical",
+      "I can be completely myself only around you",
+      "You bring a peace to my life I never knew existed",
+      "Your voice is my favourite sound in the world",
+      "You make me want to be a better person every day",
+      "You are the reason I smile for no reason",
+      "Everything feels right when I'm with you",
+      "You care about me in ways no one else does",
+      "You are my safe place, always",
+      "You give meaning to everything I do",
+      "Just your presence is more than enough",
+      "You always stand by me, no matter what",
+      "You make me feel like I matter",
+      "You bring warmth wherever you go",
+      "With you, I know what love truly feels like",
+      "You are always on my mind, always",
+      "You make my heart feel so full",
+      "You are my absolute favourite person",
+      "Even on my worst days, you make it better",
+      "You complete me in ways I can't even explain",
+      "You are my happiness",
+      "You give me strength I didn't know I had",
+      "You make life so beautifully worth living",
+      "You are my peace in all the chaos",
+      "Everything feels worth it because of you",
+    ];
 
-<div class="controls">
-<button onclick="prevPhoto()">⬅</button>
-<button onclick="nextPhoto()">➡</button>
-</div>
+    let images = [];
+    let currentIndex = 0;
+    const gallery = document.getElementById("gallery");
+    const viewer = document.getElementById("viewer");
 
-</div>
+    for (let i = 1; i <= 30; i++) {
+      const src = `S (${i}).jpeg`;
+      images.push(src);
+      const img = document.createElement("img");
+      img.src = src;
+      img.loading = "lazy";
+      img.onclick = () => { currentIndex = i - 1; openViewer(); };
+      gallery.appendChild(img);
+    }
 
-<script>
+    function openViewer() {
+      viewer.classList.add("active");
+      document.getElementById("viewerImg").src = images[currentIndex];
+      document.getElementById("viewerCaption").innerText = reasons[currentIndex % reasons.length];
+      document.getElementById("viewerCounter").innerText = `${currentIndex + 1} / ${images.length}`;
+    }
 
-const gallery = document.getElementById("gallery");
-const viewer = document.getElementById("viewer");
-const viewerImg = document.getElementById("viewerImg");
-const viewerText = document.getElementById("viewerText");
+    function closeViewer() { viewer.classList.remove("active"); }
+    function nextPhoto() { currentIndex = (currentIndex + 1) % images.length; openViewer(); }
+    function prevPhoto() { currentIndex = (currentIndex - 1 + images.length) % images.length; openViewer(); }
 
-let images = [];
-let currentIndex = 0;
+    let startX = 0;
+    viewer.addEventListener("touchstart", e => startX = e.touches[0].clientX);
+    viewer.addEventListener("touchend", e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (dx < -50) nextPhoto();
+      else if (dx > 50) prevPhoto();
+    });
 
-const reasons = [
+    function goNext() {
+      document.body.style.opacity = '0';
+      document.body.style.transition = '1s';
+      setTimeout(() => window.location = "reasons.html", 1000);
+    }
+  </script>
 
-"You make my day better just by being in it ❤️",
-"Your smile is my favorite thing in the world",
-"I feel lucky every single day because of you",
-"You understand me like no one else",
-"Your happiness matters to me the most",
-"You make even normal moments special",
-"I can be my true self around you",
-"You bring peace into my life",
-"Your voice is my comfort",
-"You make me want to become a better person",
-
-"You are the reason behind my smile",
-"You make everything feel right",
-"You care about me in ways no one else does",
-"You are my safe place",
-"You make my life more meaningful",
-"Your presence itself is enough",
-"You always support me",
-"You make me feel important",
-"You bring positivity into my life",
-"You make me feel loved",
-
-"You are always on my mind",
-"You make my heart feel full",
-"You are my favorite person",
-"You make even bad days better",
-"You make me feel complete",
-"You are my happiness",
-"You are my strength",
-"You make life beautiful",
-"You are my peace",
-"You make everything worth it",
-
-"You are my dream come true",
-"You make me believe in love",
-"You make my life brighter",
-"You are my motivation",
-"You make me smile without reason",
-"You are my forever person",
-"You make me feel special",
-"You are my comfort zone",
-"You make me feel alive",
-"You are my heart",
-
-"You make me laugh like no one else",
-"You understand my silence",
-"You are my favorite thought",
-"You make everything better",
-"You are my reason to smile",
-"You make me feel lucky",
-"You are my sunshine",
-"You make life easy",
-"You are my happiness source",
-"You make me feel complete",
-
-"You are my best friend",
-"You make my world better",
-"You are my love story",
-"You make me feel strong",
-"You are my everything",
-"You make me feel safe",
-"You are my forever",
-"You make my heart happy",
-"You are my joy",
-"You make life worth living",
-
-"You are my dream",
-"You make me feel loved deeply",
-"You are my support system",
-"You make me feel calm",
-"You are my smile",
-"You make me feel special every day",
-"You are my reason to wake up happy",
-"You make me feel understood",
-"You are my life",
-"You make everything magical",
-
-"You are my heartbeat",
-"You make me feel at home",
-"You are my world",
-"You make me feel secure",
-"You are my happiness reason",
-"You make my life meaningful",
-"You are my forever happiness",
-"You make me feel complete always",
-"You are my love",
-"You make everything perfect",
-
-"And honestly… I don’t need 100 reasons…",
-"Because loving you is the easiest thing I’ve ever done ❤️"
-
-];
-// 📸 LOAD DEFAULT IMAGES (folder madhe)
-for(let i=1;i<=30;i++){
-addImage(`S (${i}).jpeg`);
-}
-
-// ➕ ADD IMAGE FUNCTION
-function addImage(src){
-
-images.push(src);
-
-let img=document.createElement("img");
-img.src=src;
-img.loading="lazy";
-
-img.onclick=function(){
-currentIndex = images.indexOf(src);
-openViewer();
-};
-
-gallery.appendChild(img);
-}
-
-// 📂 FILE INPUT (mobile gallery open)
-document.getElementById("fileInput").addEventListener("change", function(e){
-
-let files = e.target.files;
-
-for(let file of files){
-
-let reader = new FileReader();
-
-reader.onload = function(event){
-addImage(event.target.result);
-};
-
-reader.readAsDataURL(file);
-
-}
-
-});
-
-// 🔍 OPEN VIEWER
-function openViewer(){
-
-viewer.style.display="flex";
-
-viewerImg.src = images[currentIndex];
-viewerText.innerText = reasons[currentIndex % reasons.length];
-
-}
-
-// CLOSE
-function closeViewer(){
-viewer.style.display="none";
-}
-
-// NEXT
-function nextPhoto(){
-currentIndex = (currentIndex + 1) % images.length;
-openViewer();
-}
-
-// PREV
-function prevPhoto(){
-currentIndex = (currentIndex - 1 + images.length) % images.length;
-openViewer();
-}
-
-// 👉 SWIPE
-let startX = 0;
-
-viewer.addEventListener("touchstart", e=>{
-startX = e.touches[0].clientX;
-});
-
-viewer.addEventListener("touchend", e=>{
-let endX = e.changedTouches[0].clientX;
-
-if(startX - endX > 50) nextPhoto();
-else if(endX - startX > 50) prevPhoto();
-});
-
-</script>
-
+  <script src="hearts.js"></script>
 </body>
 </html>
