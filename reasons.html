@@ -1,96 +1,192 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <title>Reasons I Love You 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .reasons-wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px 120px;
+    }
 
-<title>Reasons I Love You</title>
+    .reasons-intro {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      color: rgba(201,169,110,0.75);
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 36px;
+      line-height: 1.9;
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    .reasons {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(255,255,255,0.025);
+      border-radius: 24px;
+      border: 1px solid rgba(201,169,110,0.12);
+      box-shadow: 0 20px 70px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+    }
 
-<link rel="stylesheet" href="style.css">
+    .reason-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 18px 28px;
+      border-bottom: 1px solid rgba(201,169,110,0.07);
+      transition: all 0.35s ease;
+      cursor: default;
+    }
 
+    .reason-item:last-child { border-bottom: none; }
+
+    .reason-item:hover {
+      background: rgba(201,72,91,0.06);
+      padding-left: 36px;
+    }
+
+    .reason-num {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.1rem;
+      color: rgba(201,169,110,0.5);
+      min-width: 32px;
+      padding-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .reason-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.2vw, 1.12rem);
+      color: rgba(247,214,208,0.85);
+      line-height: 1.75;
+    }
+
+    .reason-item:hover .reason-text {
+      color: rgba(247,214,208,1);
+    }
+
+    .reason-item.special {
+      background: rgba(201,169,110,0.05);
+      padding: 28px;
+    }
+
+    .reason-item.special .reason-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+      color: var(--gold, #c9a96e);
+      line-height: 2;
+    }
+
+    .final-btn-wrap {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(-10deg); opacity: 0.6; }
+      100% { transform: translateY(110vh) rotate(10deg); opacity: 0; }
+    }
+  </style>
 </head>
-
 <body>
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
 
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 <script src="bgmusic.js"></script>
 
 <h1>Reasons I Love You ❤️</h1>
 
-<div class="reasons">
+<div class="reasons-wrapper">
 
-<p>Your smile makes my worst day better.</p>
-<p>The way you laugh is my favourite sound in the world.</p>
-<p>Your eyes have a calm that I love getting lost in.</p>
-<p>You care about people more than anyone I know.</p>
-<p>Your voice makes everything feel peaceful.</p>
-<p>You understand me even when I say nothing.</p>
-<p>You make simple moments feel special.</p>
-<p>You support me when I doubt myself.</p>
-<p>Your happiness matters to me more than anything.</p>
-<p>You always know how to make me smile.</p>
+  <p class="reasons-intro">
+    I sat down to write a few reasons...<br>
+    and I couldn't stop. This is how much you mean to me. 💖
+  </p>
 
-<p>Your kindness makes the world better.</p>
-<p>The way you listen to me patiently.</p>
-<p>Your little habits that only I notice.</p>
-<p>Your cute anger that disappears in minutes.</p>
-<p>Your hugs feel like home.</p>
-<p>You make ordinary days feel beautiful.</p>
-<p>You believe in me when I don't believe in myself.</p>
-<p>You bring peace to my mind.</p>
-<p>The way you care about small things.</p>
-<p>Your presence alone makes everything better.</p>
+  <div class="reasons" id="reasonsList"></div>
 
-<p>You make my life brighter.</p>
-<p>Your smile can fix my mood instantly.</p>
-<p>The way you look at me sometimes.</p>
-<p>You make me feel lucky every day.</p>
-<p>Your heart is pure and beautiful.</p>
-<p>You make memories unforgettable.</p>
-<p>You make love feel simple and real.</p>
-<p>You are my favourite person to talk to.</p>
-<p>You understand my silence.</p>
-<p>You make every moment feel meaningful.</p>
+  <div class="final-btn-wrap">
+    <button onclick="goFinal()">One Last Surprise 💍</button>
+  </div>
 
-<p>You bring joy into my life.</p>
-<p>You make my problems feel smaller.</p>
-<p>Your happiness becomes my happiness.</p>
-<p>You make me a better person.</p>
-<p>You give me strength when I feel weak.</p>
-<p>Your love feels safe and warm.</p>
-<p>You make me feel important.</p>
-<p>Your presence makes my world calmer.</p>
-<p>You are the most beautiful girl in my eyes.</p>
-<p>You make me believe in love.</p>
-
-<p>You make life feel like an adventure.</p>
-<p>Every moment with you becomes a memory.</p>
-<p>You make my heart feel full.</p>
-<p>You give meaning to my days.</p>
-<p>You make everything feel worth it.</p>
-<p>I love the way you exist in my life.</p>
-<p>You make my world complete.</p>
-<p>You are the best part of my life.</p>
-<p>I fall in love with you again and again every day.</p>
-
-<p><strong>And the 50th reason… because even after writing all these reasons, I still feel like they are not enough to explain how much I love you. I know one thing for sure — I will keep loving you today, tomorrow, and forever. ❤️</strong></p></div>
-
-<button onclick="final()">Final Surprise</button>
+</div>
 
 <script>
+const allReasons = [
+  "Your smile makes my worst day instantly better — every single time.",
+  "The way you laugh is my absolute favourite sound in the whole world.",
+  "Your eyes hold a calm I love getting completely lost in.",
+  "You care about people more deeply than anyone I have ever known.",
+  "Your voice makes everything feel peaceful and warm.",
+  "You understand me even when I say absolutely nothing at all.",
+  "You make the simplest moments feel like something out of a dream.",
+  "You support me every time I start to doubt myself.",
+  "Your happiness matters to me more than anything else ever could.",
+  "You always know exactly how to make me smile without even trying.",
+  "Your kindness makes the whole world a gentler place.",
+  "The way you listen to me with such patience and care.",
+  "Your little habits that only I get to notice and quietly love.",
+  "Your cute anger that always disappears within minutes and leaves me smiling.",
+  "Your hugs — they feel like the safest place in the entire world.",
+  "You make even the most ordinary days feel beautiful and worth it.",
+  "You believe in me even when I have stopped believing in myself.",
+  "You bring such a rare kind of peace to my restless mind.",
+  "The way you genuinely care about the smallest little things.",
+  "Just your presence alone makes absolutely everything better.",
+  "You make my life so much brighter just by being in it.",
+  "Your smile can completely fix my mood in a single moment.",
+  "The way you look at me sometimes — like I am something worth looking at.",
+  "You make me feel genuinely lucky every single day I get to know you.",
+  "Your heart is so pure, so tender, so utterly and completely beautiful.",
+  "You make every memory we create feel truly unforgettable.",
+  "You make love feel effortless, simple, real, and deeply true.",
+  "You are my favourite person to talk to about absolutely everything.",
+  "You understand my silence in a way no one else ever has.",
+  "You make every single moment feel like it has meaning.",
+  "You bring joy into my life that I never knew I was missing.",
+  "You make all my problems feel so much smaller just by being near.",
+  "Your happiness genuinely becomes my happiness, always and without question.",
+  "You make me want to be a better version of myself every day.",
+  "You give me strength when I feel completely broken and weak.",
+  "Your love feels so safe, so warm, so endlessly and quietly real.",
+  "You make me feel important and seen and truly loved.",
+  "Your presence makes my whole world calmer and quieter and right.",
+  "You are the most beautiful girl in my eyes — always, in every way.",
+  "You make me believe in love in a way I never did before.",
+  "You make life feel like the most beautiful adventure I have ever been on.",
+  "Every moment with you somehow becomes a memory I hold forever.",
+  "You make my heart feel so full it almost aches.",
+  "You give meaning to my days in a way nothing else ever has.",
+  "You make everything — everything — feel completely worth it.",
+  "I love the way you simply exist so beautifully in my life.",
+  "You make my world feel whole and complete in a way I cannot explain.",
+  "You are the best part of every single day I have lived.",
+  "I fall in love with you again and again, deeper each time, every single day.",
+  "And the 50th reason... because even after writing all of this, I still feel like words are not enough. They will never be enough. I know only one thing with complete certainty — I will keep loving you today, tomorrow, and every single day after that, forever. ❤️",
+];
 
-function final(){
+const list = document.getElementById("reasonsList");
+allReasons.forEach((text, i) => {
+  const div = document.createElement("div");
+  div.className = "reason-item" + (i === allReasons.length - 1 ? " special" : "");
+  div.innerHTML = `<span class="reason-num">${String(i+1).padStart(2,"0")}</span><span class="reason-text">${text}</span>`;
+  list.appendChild(div);
+});
 
-window.location="final.html";
-
+function goFinal() {
+  document.body.style.opacity = '0';
+  document.body.style.transition = '1s';
+  setTimeout(() => window.location = "final.html", 1000);
 }
-
 </script>
 
 <script src="hearts.js"></script>
-
 </body>
 </html>

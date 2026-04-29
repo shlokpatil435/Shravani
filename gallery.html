@@ -28,7 +28,8 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse at 20% 50%, rgba(201,72,91,0.10) 0%, transparent 50%),
+        radial-gradient(ellipse at 20% 50%, rgba(201,72,91,0.12) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(139,26,46,0.10) 0%, transparent 40%),
         linear-gradient(180deg, #1a0a0d 0%, #2d0f18 50%, #1a0a0d 100%);
       pointer-events: none;
       z-index: 0;
@@ -45,11 +46,11 @@
       font-family: 'Dancing Script', cursive;
       font-size: clamp(2rem, 7vw, 4rem);
       color: transparent;
-      background: linear-gradient(135deg, #f7d6d0, #c9a96e, #f7d6d0);
+      background: linear-gradient(135deg, #f7d6d0, #c9a96e, #c9485b, #f7d6d0);
       -webkit-background-clip: text;
       background-clip: text;
-      background-size: 200%;
-      animation: shimmer 3s ease infinite;
+      background-size: 300%;
+      animation: shimmer 4s ease infinite;
     }
 
     @keyframes shimmer {
@@ -59,25 +60,25 @@
 
     .page-title .sub {
       font-style: italic;
-      color: rgba(247,214,208,0.45);
-      font-size: 1rem;
-      letter-spacing: 0.15em;
-      margin-top: 8px;
+      color: rgba(247,214,208,0.50);
+      font-size: 1.05rem;
+      letter-spacing: 0.18em;
+      margin-top: 10px;
     }
 
     .divider {
-      width: 100px;
+      width: 120px;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
       margin: 20px auto;
     }
 
-    /* GRID */
+    /* GRID — 150px columns */
     #gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       gap: 10px;
-      padding: 10px 14px 100px;
+      padding: 10px 14px 110px;
       position: relative;
       z-index: 1;
     }
@@ -89,15 +90,15 @@
       border-radius: 14px;
       cursor: pointer;
       transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
       filter: brightness(0.92) saturate(1.1);
-      border: 1px solid rgba(201,169,110,0.08);
+      border: 1px solid rgba(201,169,110,0.10);
     }
 
     #gallery img:hover {
-      transform: scale(1.07) translateY(-4px);
-      box-shadow: 0 15px 40px rgba(201,72,91,0.3), 0 0 0 1px rgba(201,169,110,0.25);
-      filter: brightness(1.05) saturate(1.2);
+      transform: scale(1.08) translateY(-5px);
+      box-shadow: 0 18px 45px rgba(201,72,91,0.35), 0 0 0 1px rgba(201,169,110,0.3);
+      filter: brightness(1.08) saturate(1.25);
     }
 
     /* NEXT BUTTON */
@@ -113,20 +114,20 @@
       padding: 16px 45px;
       border: 1px solid rgba(201,169,110,0.4);
       border-radius: 50px;
-      background: linear-gradient(135deg, rgba(201,72,91,0.35), rgba(139,26,46,0.5));
+      background: linear-gradient(135deg, rgba(201,72,91,0.4), rgba(139,26,46,0.55));
       color: var(--soft-gold);
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       letter-spacing: 0.15em;
       cursor: pointer;
       backdrop-filter: blur(20px);
       transition: all 0.4s ease;
-      box-shadow: 0 0 30px rgba(201,72,91,0.2);
+      box-shadow: 0 0 35px rgba(201,72,91,0.25);
     }
 
     .next-btn:hover {
-      transform: scale(1.05) translateY(-2px);
-      box-shadow: 0 0 50px rgba(201,72,91,0.4);
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 0 60px rgba(201,72,91,0.45);
       border-color: var(--gold);
       color: #fff;
     }
@@ -148,9 +149,9 @@
 
     #viewer img {
       max-width: 88%;
-      max-height: 56vh;
-      border-radius: 18px;
-      box-shadow: 0 0 80px rgba(201,72,91,0.25);
+      max-height: 55vh;
+      border-radius: 20px;
+      box-shadow: 0 0 100px rgba(201,72,91,0.3);
       object-fit: contain;
     }
 
@@ -159,17 +160,17 @@
       font-family: 'Playfair Display', serif;
       font-style: italic;
       font-size: clamp(0.95rem, 2.5vw, 1.2rem);
-      color: rgba(247,214,208,0.75);
+      color: rgba(247,214,208,0.80);
       text-align: center;
-      padding: 0 24px;
-      max-width: 500px;
-      line-height: 1.8;
+      padding: 0 28px;
+      max-width: 520px;
+      line-height: 1.9;
     }
 
     #viewerCounter {
       margin-top: 10px;
       font-size: 0.8rem;
-      color: rgba(201,169,110,0.4);
+      color: rgba(201,169,110,0.45);
       letter-spacing: 0.2em;
     }
 
@@ -180,12 +181,12 @@
     }
 
     .v-btn {
-      padding: 12px 28px;
+      padding: 12px 30px;
       border: 1px solid rgba(201,169,110,0.25);
       border-radius: 50px;
       background: rgba(255,255,255,0.04);
       color: var(--blush);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       cursor: pointer;
       transition: all 0.3s;
       backdrop-filter: blur(10px);
@@ -217,7 +218,7 @@
     }
 
     @keyframes fall {
-      0% { transform: translateY(-10vh) rotate(-10deg); opacity: 0.7; }
+      0% { transform: translateY(-10vh) rotate(-10deg); opacity: 0.6; }
       100% { transform: translateY(110vh) rotate(10deg); opacity: 0; }
     }
   </style>
@@ -226,7 +227,7 @@
 
   <div class="page-title">
     <h1>Our Memories 💝</h1>
-    <p class="sub">every photo, a moment i treasure</p>
+    <p class="sub">every photo, a moment i treasure forever</p>
     <div class="divider"></div>
   </div>
 
@@ -236,7 +237,6 @@
     <button class="next-btn" onclick="goNext()">Read My Heart &nbsp;→</button>
   </div>
 
-  <!-- VIEWER -->
   <div id="viewer">
     <button class="close-btn" onclick="closeViewer()">✕</button>
     <img id="viewerImg" src="" alt="">
@@ -250,36 +250,56 @@
 
   <script>
     const reasons = [
-      "Your smile is the first thing I think of every morning ❤️",
-      "The way you laugh makes everything feel lighter",
-      "I feel lucky every single day because of you",
+      "Your smile is the first thing I think of every morning 🌸",
+      "The way you laugh makes the whole world feel lighter",
+      "I feel like the luckiest person alive because of you",
       "You understand me like no one else ever has",
-      "Your happiness is all that matters to me",
+      "Your happiness is all that truly matters to me",
       "You make even the smallest moments feel magical",
-      "I can be completely myself only around you",
-      "You bring a peace to my life I never knew existed",
-      "Your voice is my favourite sound in the world",
-      "You make me want to be a better person every day",
-      "You are the reason I smile for no reason",
+      "I can be completely myself only when I'm with you",
+      "You bring a peace to my life I never knew was possible",
+      "Your voice is my favourite sound in the entire world",
+      "You make me want to be a better person every single day",
+      "You are the reason I smile for absolutely no reason",
       "Everything feels right when I'm with you",
-      "You care about me in ways no one else does",
-      "You are my safe place, always",
+      "You care about me in ways no one else ever does",
+      "You are my safe place, always and forever",
       "You give meaning to everything I do",
-      "Just your presence is more than enough",
-      "You always stand by me, no matter what",
-      "You make me feel like I matter",
-      "You bring warmth wherever you go",
-      "With you, I know what love truly feels like",
-      "You are always on my mind, always",
-      "You make my heart feel so full",
-      "You are my absolute favourite person",
-      "Even on my worst days, you make it better",
-      "You complete me in ways I can't even explain",
-      "You are my happiness",
-      "You give me strength I didn't know I had",
-      "You make life so beautifully worth living",
-      "You are my peace in all the chaos",
+      "Just your presence alone is more than enough for me",
+      "You always stand by me, no matter what happens",
+      "You make me feel like I truly matter in this world",
+      "You bring warmth into every room you walk into",
+      "With you, I finally know what real love feels like",
+      "You are always on my mind, every single moment",
+      "You make my heart feel so incredibly full",
+      "You are my absolute favourite person on this earth",
+      "Even on my worst days, you make everything better",
+      "You complete me in ways I can't even begin to explain",
+      "You are my happiness, my light, my reason",
+      "You give me a strength I never knew I had inside me",
+      "You make life so beautifully and completely worth living",
+      "You are my peace in the middle of all the chaos",
       "Everything feels worth it because of you",
+      "Your eyes hold a calm I love getting completely lost in",
+      "The way you care about the smallest things melts my heart",
+      "You are the most beautiful person I have ever seen",
+      "You make ordinary days feel like something out of a dream",
+      "Your little habits that only I get to notice and love",
+      "You make love feel simple, real, and deeply true",
+      "You are my favourite person to talk to about everything",
+      "You understand my silence better than anyone ever could",
+      "You make every single moment feel deeply meaningful",
+      "Your heart is so pure, so gentle, so genuinely beautiful",
+      "You make my problems feel smaller just by being near",
+      "Your happiness becomes my happiness, always",
+      "You give me strength when I feel the weakest",
+      "Your love feels so safe, so warm, so endlessly real",
+      "You make me feel important and seen and loved",
+      "Your presence makes my whole world feel calmer",
+      "You make me believe in love all over again",
+      "You make my heart race and feel at peace at the same time",
+      "You are the chapter in my life I never want to end",
+      "I fall in love with you again and again, every single day 💖",
     ];
 
     let images = [];
@@ -287,13 +307,13 @@
     const gallery = document.getElementById("gallery");
     const viewer = document.getElementById("viewer");
 
-    for (let i = 1; i <= 130; i++) {
+    for (let i = 1; i <= 150; i++) {
       const src = `S (${i}).jpeg`;
       images.push(src);
       const img = document.createElement("img");
       img.src = src;
       img.loading = "lazy";
-      img.onclick = () => { currentIndex = i - 1; openViewer(); };
+      img.onclick = (function(idx){ return function(){ currentIndex = idx; openViewer(); }; })(i - 1);
       gallery.appendChild(img);
     }
 
