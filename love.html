@@ -1,162 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <title>Love 💝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Dancing+Script:wght@600;700&family=Lora:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+  <style>
 
-<title>Love 💝</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    :root {
+      --rose: #c9485b;
+      --deep-rose: #8b1a2e;
+      --blush: #f7d6d0;
+      --gold: #c9a96e;
+      --soft-gold: #e8d5b0;
+    }
 
-<style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* 💖 BACKGROUND */
-html, body{
-margin:0;
-padding:0;
-height:100%;
-width:100%;
-overflow:hidden;
-font-family:Arial;
-background: linear-gradient(180deg,#e88c8c,#f2aaaa,#f5bcbc);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-}
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: 'Cormorant Garamond', serif;
+      background: #0d0508;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
 
-/* 📦 CONTAINER */
-#container{
-position:fixed;
-width:100%;
-height:100%;
-z-index:1;
-}
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(180,40,70,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(120,20,45,0.16) 0%, transparent 45%),
+        radial-gradient(ellipse 70% 40% at 50% 85%, rgba(180,120,60,0.1) 0%, transparent 45%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, rgba(60,8,20,0.55) 0%, transparent 70%),
+        linear-gradient(180deg, #0d0508 0%, #200a12 35%, #180710 65%, #0d0508 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* 📸 PHOTOS */
-.photo{
-position:absolute;
-width:22vw;
-height:22vw;
-max-width:110px;
-max-height:110px;
-background-size:cover;
-background-position:center;
-border-radius:12px;
-transition:all 1.5s ease;
-}
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse 140% 140% at 50% 50%, transparent 30%, rgba(0,0,0,0.65) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-/* 🌟 FINAL IMAGE */
-#finalImage{
-width:80vw;
-max-width:350px;
-height:80vw;
-max-height:450px;
+    #container {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
 
-background-size:cover;
-background-position:center;
-border-radius:15px;
+    .photo {
+      position: absolute;
+      width: 22vw;
+      height: 22vw;
+      max-width: 120px;
+      max-height: 120px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 18px;
+      transition: all 2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow:
+        0 10px 35px rgba(0,0,0,0.7),
+        0 0 0 1px rgba(201,169,110,0.12);
+      opacity: 0.8;
+    }
 
-opacity:0;
-z-index:5;
-transition:2s;
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
+    #finalImage {
+      width: 80vw;
+      max-width: 340px;
+      height: 80vw;
+      max-height: 440px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 24px;
+      opacity: 0;
+      z-index: 5;
+      position: relative;
+      transition: opacity 2.8s ease, transform 2.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transform: scale(0.88);
+      box-shadow:
+        0 0 100px rgba(201,72,91,0.4),
+        0 0 200px rgba(201,72,91,0.15),
+        0 30px 80px rgba(0,0,0,0.8),
+        0 0 0 1px rgba(201,169,110,0.25);
+    }
 
-/* 💝 TEXT */
-#finalText{
-margin-top:20px;
-font-size:4.5vw;
-color:#b0003a;
-font-weight:bold;
-text-align:center;
+    #finalImage.visible {
+      opacity: 1;
+      transform: scale(1);
+      animation: imageGlow 4s ease-in-out infinite 2.8s;
+    }
 
-opacity:1;
-z-index:6;
-}
+    @keyframes imageGlow {
+      0%, 100% { box-shadow: 0 0 100px rgba(201,72,91,0.4), 0 0 200px rgba(201,72,91,0.15), 0 30px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,169,110,0.25); }
+      50%       { box-shadow: 0 0 150px rgba(201,72,91,0.6), 0 0 280px rgba(201,72,91,0.22), 0 30px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,169,110,0.4); }
+    }
 
-</style>
+    #finalText {
+      margin-top: 32px;
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.4rem, 5.5vw, 2.5rem);
+      font-weight: 700;
+      color: transparent;
+      background: linear-gradient(135deg, #fce8e4, #c9a96e, #c9485b, #e8d5b0, #c9a96e, #fce8e4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 400%;
+      animation: shimmer 5s ease infinite;
+      text-align: center;
+      z-index: 6;
+      position: relative;
+      line-height: 1.6;
+      padding: 0 28px;
+      min-height: 65px;
+      filter: drop-shadow(0 0 30px rgba(201,72,91,0.3));
+    }
 
+    @keyframes shimmer {
+      0%, 100% { background-position: 0%; }
+      50% { background-position: 100%; }
+    }
+
+    @keyframes fall {
+      0%   { transform: translateY(-10vh) rotate(-12deg); opacity: 0; }
+      8%   { opacity: 0.8; }
+      100% { transform: translateY(112vh) rotate(12deg); opacity: 0; }
+    }
+
+  </style>
 </head>
-
 <body>
 
-<div id="container"></div>
+  <div id="container"></div>
+  <div id="finalImage"></div>
+  <div id="finalText"></div>
 
-<div id="finalImage"></div>
-<div id="finalText"></div>
+  <script>
+    let images = [];
+    for (let i = 1; i <= 30; i++) {
+      images.push(`S (${i}).jpeg`);
+    }
 
-<script>
+    const container = document.getElementById("container");
+    let photos = [];
 
-// 🎯 IMAGES
-let images=[];
-for(let i=1;i<=30;i++){
-images.push(`S (${i}).jpeg`);
-}
+    for (let i = 0; i < images.length; i++) {
+      let div = document.createElement("div");
+      div.className = "photo";
+      div.style.backgroundImage = `url("${images[i]}")`;
+      div.style.top = Math.random() * 100 + "vh";
+      div.style.left = Math.random() * 100 + "vw";
+      container.appendChild(div);
+      photos.push(div);
+    }
 
-const container=document.getElementById("container");
-let photos=[];
+    let float = setInterval(() => {
+      photos.forEach(p => {
+        p.style.top = Math.random() * 100 + "vh";
+        p.style.left = Math.random() * 100 + "vw";
+      });
+    }, 2000);
 
-// 📸 CREATE
-for(let i=0;i<images.length;i++){
+    setTimeout(() => { clearInterval(float); }, 5000);
 
-let div=document.createElement("div");
-div.className="photo";
+    setTimeout(() => {
+      photos.forEach(p => {
+        p.style.transition = "opacity 1.8s ease";
+        p.style.opacity = "0";
+      });
+    }, 5800);
 
-div.style.backgroundImage=`url("${images[i]}")`;
-div.style.top=Math.random()*100+"vh";
-div.style.left=Math.random()*100+"vw";
+    setTimeout(() => { photos.forEach(p => p.remove()); }, 8000);
 
-container.appendChild(div);
-photos.push(div);
-}
+    setTimeout(() => {
+      let finalImg = document.getElementById("finalImage");
+      finalImg.style.backgroundImage = "url('special.jpeg')";
+      finalImg.classList.add("visible");
+    }, 7200);
 
-// 🎬 FLOAT
-let float=setInterval(()=>{
-photos.forEach(p=>{
-p.style.top=Math.random()*100+"vh";
-p.style.left=Math.random()*100+"vw";
-});
-},2000);
+    setTimeout(() => {
+      const text = "I love you soooooooo muchhhhhhh Baykooo ❤️";
+      let i = 0;
+      const speed = 55;
+      function type() {
+        if (i < text.length) {
+          document.getElementById("finalText").innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        }
+      }
+      type();
+    }, 8800);
+  </script>
 
-// 🛑 STOP FLOAT
-setTimeout(()=>{
-clearInterval(float);
-},5000);
-
-// ❌ FADE PHOTOS
-setTimeout(()=>{
-photos.forEach(p=>{
-p.style.opacity="0";
-});
-},6000);
-
-// 🌟 SHOW IMAGE
-setTimeout(()=>{
-
-let finalImg=document.getElementById("finalImage");
-finalImg.style.backgroundImage="url('special.jpeg')";
-finalImg.style.opacity="1";
-
-},7000);
-
-// ⌨️ TYPING EFFECT
-setTimeout(()=>{
-
-let text = "I love you soooooooo muchhhhhhh Baykooo ❤️";
-let i=0;
-let speed=50;
-
-function type(){
-if(i<text.length){
-document.getElementById("finalText").innerHTML += text.charAt(i);
-i++;
-setTimeout(type,speed);
-}
-}
-
-type();
-
-},8500);
-
-</script>
+  <script src="hearts.js"></script>
 
 </body>
 </html>

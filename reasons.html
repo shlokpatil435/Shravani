@@ -8,71 +8,81 @@
     .reasons-wrapper {
       max-width: 680px;
       margin: 0 auto;
-      padding: 0 16px 120px;
+      padding: 0 16px 130px;
+      animation: fadeUp 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(35px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .reasons-intro {
-      font-family: 'Dancing Script', cursive;
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      color: rgba(201,169,110,0.75);
+      font-family: 'Lora', serif;
+      font-size: clamp(1.05rem, 3vw, 1.4rem);
+      color: rgba(201,169,110,0.7);
       text-align: center;
       font-style: italic;
-      margin-bottom: 36px;
-      line-height: 1.9;
+      margin-bottom: 40px;
+      line-height: 2;
     }
 
     .reasons {
       display: flex;
       flex-direction: column;
       gap: 0;
-      background: rgba(255,255,255,0.025);
-      border-radius: 24px;
-      border: 1px solid rgba(201,169,110,0.12);
-      box-shadow: 0 20px 70px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
-      backdrop-filter: blur(20px);
+      background: rgba(255,255,255,0.02);
+      border-radius: 28px;
+      box-shadow:
+        0 0 0 1px rgba(201,169,110,0.1),
+        0 30px 90px rgba(0,0,0,0.6),
+        inset 0 1px 0 rgba(255,255,255,0.05),
+        inset 0 0 80px rgba(201,72,91,0.03);
+      backdrop-filter: blur(22px);
       overflow: hidden;
     }
 
     .reason-item {
       display: flex;
       align-items: flex-start;
-      gap: 16px;
-      padding: 18px 28px;
-      border-bottom: 1px solid rgba(201,169,110,0.07);
-      transition: all 0.35s ease;
+      gap: 18px;
+      padding: 20px 30px;
+      border-bottom: 1px solid rgba(201,169,110,0.06);
+      transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
       cursor: default;
     }
 
     .reason-item:last-child { border-bottom: none; }
 
     .reason-item:hover {
-      background: rgba(201,72,91,0.06);
-      padding-left: 36px;
+      background: rgba(201,72,91,0.05);
+      padding-left: 40px;
     }
 
     .reason-num {
       font-family: 'Dancing Script', cursive;
-      font-size: 1.1rem;
-      color: rgba(201,169,110,0.5);
-      min-width: 32px;
-      padding-top: 2px;
+      font-size: 1.05rem;
+      color: rgba(201,169,110,0.45);
+      min-width: 34px;
+      padding-top: 3px;
       flex-shrink: 0;
     }
 
     .reason-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 2.2vw, 1.12rem);
-      color: rgba(247,214,208,0.85);
-      line-height: 1.75;
+      font-family: 'Lora', serif;
+      font-size: clamp(0.98rem, 2.2vw, 1.1rem);
+      color: rgba(247,214,208,0.82);
+      line-height: 1.85;
+      font-style: italic;
     }
 
     .reason-item:hover .reason-text {
-      color: rgba(247,214,208,1);
+      color: rgba(247,214,208,0.98);
     }
 
     .reason-item.special {
-      background: rgba(201,169,110,0.05);
-      padding: 28px;
+      background: rgba(201,169,110,0.04);
+      padding: 30px;
     }
 
     .reason-item.special .reason-text {
@@ -80,17 +90,18 @@
       font-style: italic;
       font-size: clamp(1.05rem, 2.5vw, 1.2rem);
       color: var(--gold, #c9a96e);
-      line-height: 2;
+      line-height: 2.1;
     }
 
     .final-btn-wrap {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 44px;
     }
 
     @keyframes fall {
-      0% { transform: translateY(-10vh) rotate(-10deg); opacity: 0.6; }
-      100% { transform: translateY(110vh) rotate(10deg); opacity: 0; }
+      0%   { transform: translateY(-10vh) rotate(-12deg); opacity: 0; }
+      8%   { opacity: 0.7; }
+      100% { transform: translateY(112vh) rotate(12deg); opacity: 0; }
     }
   </style>
 </head>
@@ -182,8 +193,8 @@ allReasons.forEach((text, i) => {
 
 function goFinal() {
   document.body.style.opacity = '0';
-  document.body.style.transition = '1s';
-  setTimeout(() => window.location = "final.html", 1000);
+  document.body.style.transition = '1.2s';
+  setTimeout(() => window.location = "final.html", 1200);
 }
 </script>
 

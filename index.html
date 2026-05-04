@@ -1,55 +1,149 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <title>For You 💝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .lock-wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
 
-<title>Birthday Surprise</title>
+    /* Soft starfield */
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: rgba(247,214,208,0.6);
+      border-radius: 50%;
+      animation: twinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.4); }
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    .lock-icon {
+      font-size: 58px;
+      margin-bottom: 14px;
+      animation: floatIcon 3.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(201,169,110,0.5));
+    }
+    @keyframes floatIcon {
+      0%,100%{ transform: translateY(0) rotate(-2deg); }
+      50%    { transform: translateY(-10px) rotate(2deg); }
+    }
 
-<link rel="stylesheet" href="style.css">
+    .lock-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: rgba(247,214,208,0.42);
+      letter-spacing: 0.2em;
+      margin-top: 8px;
+      margin-bottom: 38px;
+    }
+    .hint {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(201,169,110,0.35);
+      margin-top: 20px;
+      letter-spacing: 0.14em;
+    }
 
+    /* Decorative ring around lock icon */
+    .lock-ring {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,169,110,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      position: relative;
+      animation: ringPulse 4s ease-in-out infinite;
+    }
+    .lock-ring::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,72,91,0.1);
+      animation: ringPulse 4s ease-in-out infinite 1s;
+    }
+    @keyframes ringPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(201,169,110,0.12); }
+      50%       { box-shadow: 0 0 0 12px rgba(201,169,110,0); }
+    }
+  </style>
 </head>
-
 <body>
-
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
+<audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
 <script src="bgmusic.js"></script>
 
-<h1>Enter the Secret Password ❤️</h1>
+<!-- Starfield -->
+<div class="stars" id="stars"></div>
 
-<input type="password" id="pass" placeholder="Hint: Our special thing">
-
-<br>
-
-<button onclick="checkPass()">Unlock</button>
-
-<p id="msg"></p>
+<div class="lock-wrap">
+  <div class="lock-ring">
+    <div class="lock-icon">🔐</div>
+  </div>
+  <h1>Something Special Awaits You</h1>
+  <p class="lock-sub">made with every bit of love i have</p>
+  <div class="divider"></div>
+  <input type="password" id="pass" placeholder="whisper the password…">
+  <br>
+  <button onclick="checkPass()">Open My Heart</button>
+  <p id="msg"></p>
+  <p class="hint">hint : our special thing ✨</p>
+</div>
 
 <script>
+// Generate starfield
+const starsEl = document.getElementById("stars");
+for(let i = 0; i < 80; i++){
+  const s = document.createElement("div");
+  s.className = "star";
+  s.style.left = Math.random()*100 + "vw";
+  s.style.top  = Math.random()*100 + "vh";
+  s.style.setProperty("--d", (2 + Math.random()*4) + "s");
+  s.style.setProperty("--delay", (-Math.random()*4) + "s");
+  s.style.width = s.style.height = (1 + Math.random()*2) + "px";
+  starsEl.appendChild(s);
+}
 
 function checkPass(){
-
-let p=document.getElementById("pass").value;
-
-if(p==="shravani"){
-
-window.location="main.html";
-
+  const p = document.getElementById("pass").value;
+  if(p === "shravani"){
+    document.body.style.opacity = "0";
+    document.body.style.transition = "1.2s";
+    setTimeout(() => window.location = "main.html", 1200);
+  } else {
+    const msg = document.getElementById("msg");
+    msg.innerText = "that's not it, love… try again 😊";
+    document.getElementById("pass").style.animation = "none";
+    setTimeout(()=> document.getElementById("pass").style.animation = "", 100);
+  }
 }
-
-else{
-
-document.getElementById("msg").innerText="Wrong password 😜 Try again";
-
-}
-
-}
-
+document.getElementById("pass").addEventListener("keydown", e => {
+  if(e.key === "Enter") checkPass();
+});
 </script>
-
 <script src="hearts.js"></script>
-
 </body>
 </html>

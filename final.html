@@ -1,29 +1,67 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+  <title>Final Surprise ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Typing cursor */
+    #loveMessage::after {
+      content: '|';
+      animation: blink 0.9s step-end infinite;
+      color: rgba(201,169,110,0.6);
+      font-weight: 300;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
 
-<title>Final Surprise ❤️</title>
+    /* Celebrate button — special glow */
+    button.celebrate-btn {
+      background: linear-gradient(135deg, rgba(201,169,110,0.2), rgba(201,72,91,0.25), rgba(201,169,110,0.15));
+      animation: celebratePulse 2.5s ease-in-out infinite;
+    }
+    @keyframes celebratePulse {
+      0%, 100% { box-shadow: 0 0 0 1px rgba(201,169,110,0.3), 0 0 40px rgba(201,169,110,0.15); }
+      50%       { box-shadow: 0 0 0 1px rgba(201,169,110,0.5), 0 0 80px rgba(201,169,110,0.3); }
+    }
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    /* Proposal box — deeper luxury */
+    #proposalBox {
+      background: linear-gradient(160deg, #180810, #2a0d17, #150609);
+      box-shadow:
+        0 0 0 1px rgba(201,169,110,0.35),
+        0 0 0 12px rgba(201,72,91,0.08),
+        0 0 140px rgba(201,72,91,0.5),
+        0 40px 100px rgba(0,0,0,0.85),
+        inset 0 1px 0 rgba(255,255,255,0.07);
+    }
 
-<link rel="stylesheet" href="style.css">
-
+    .proposal-ring {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 18px;
+      font-size: 48px;
+      line-height: 70px;
+      text-align: center;
+      animation: ringFloat 2.5s ease-in-out infinite;
+    }
+    @keyframes ringFloat {
+      0%, 100% { transform: translateY(0) rotate(-5deg); filter: drop-shadow(0 0 12px rgba(201,169,110,0.4)); }
+      50%       { transform: translateY(-8px) rotate(5deg); filter: drop-shadow(0 0 25px rgba(201,169,110,0.7)); }
+    }
+  </style>
 </head>
-
 
 <body>
 
 <h1>Happy Birthday Shravani ❤️</h1>
 
 <div class="final-message">
-
-<div id="loveMessage"></div>
-
-<button onclick="celebrate()">Celebrate 🎉</button>
-
-<div id="cake">🎂</div>
-
+  <div id="loveMessage"></div>
+  <button class="celebrate-btn" onclick="celebrate()">Celebrate 🎉</button>
+  <div id="cake">🎂</div>
 </div>
 
 <script src="final.js"></script>
@@ -32,11 +70,9 @@
 <div id="overlay"></div>
 
 <div id="proposalBox">
-
-<h2>💍 Mazya sobat akha aayushya ghalvshil ka?</h2>
-
-<button onclick="yesClicked()">YES ❤️</button>
-
+  <div class="proposal-ring">💍</div>
+  <h2>Mazya sobat akha aayushya ghalvshil ka?</h2>
+  <button onclick="yesClicked()">YES ❤️</button>
 </div>
 
 </body>

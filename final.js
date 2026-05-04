@@ -27,29 +27,22 @@ const message = `
 <p>
 Apan gele 3 years pasun sobat ahot — kadhi friend, kadhi best friend,
 aani gele 2 years relationship madhe ahot...
-Pan khara sangaycha tar mala kadhi vatlach navhta
-ki mi kadhi kuthlya mulila asa sangin ki mala tichya var crush hota.
+Pan khara sangaycha tar mala seriously kadhi vatlach navhta
+ki mi kadhi kuthlya mulila swathaun sangin ki mala tichya var crush hota.
 </p>
 
 <p>
 Tula sangu… jevha tu 8vi-9vi madhe ashil,
 tevha mi tula pahilyanda baghitla hota…
 Tevhach tu mazya manat ghar karun basli hotis.
-Mala vatla navhta ki apan kadhi relationship madhe yeu,
-pan aaj tu mazya sobat ahes — he mazya sathi saglyat motha gift ahe ❤️
+Mala vatla navhta ki apan kadhi relationship madhe yeu —
+pan aaj tu mazya sobat ahes.
+Tu khup sundar ahes, mala thodi vataycha ki tu mala pasant karshil,
+pan aaj tu mala pasant kelach ahes — he mazya sathi saglyat motha gift ahe ❤️
 </p>
 
 <p>
-Mi tuzya birthday la hich ek goshta magu shakto —
-please kahi change hou deu nakos apan doghi madhe.
-Tu mazya aayushyat aahhes — he saglyapeksha motha ahe majhyasathi.
-Tuzhi khushi baghun maza divas banato.
-Tuzha ek message yeuna mazya chehra var smile yeto.
-He kadhi band hou naye asa mala watata rohoj.
-</p>
-
-<p>
-Ek gosht lakshat thev —
+Ek goshta lakshat thev —
 mi kayam tuzya sobat ahe…
 Tuzya sukhat, tuzya dukhat,
 mi kayam tuzya pathishi ubha asen.
@@ -60,69 +53,100 @@ thoda vel lagel, pan tuze sagle swapna purna karin 💖
 <p>
 Jevha pasun apan sobat ahot,
 tevha pasun maza ayush kharach badlun gela ahe…
-Mi progress keli ahe,
-karan mala tula kadhi gamvaycha nahi ahe.
+Mi khup progress keli ahe,
+karan mala tula kadhi gamvaycha nahi —
+mahnun mi tula khush thevaycha prayatna karat asto.
 Tuzhi waat pahu nako — mi always ithe ahen tuzya sathi.
 </p>
 
 <p>
-Aplya madhye bhandan hotat,
-pan apan parat ekmekansathi yeun bolto…
-Kiti pan bhandan zala tari,
-apan kadhi ekmekanchach vichar karna thambavat nahi.
-He bhandan mhanaje apan kitya ektrach shilke, he darshavata.
-Te naate kharach strong asata jo tutata nahi.
+I know aplya madhye bhandan hotat,
+pan apan thodya velani swathacha tyala visrun jato aani parat bolayla lagto…
+Kiti pan bhandan houde — apan kadhi ekmekanchach vichar karna thambavat nahi.
+Kadhi kadhi te 1-2 divas chalu astat — pan te normal ahe relationship madhe.
+Bag na, kiti pan bhandan zala tari,
+apan kayam ekmekasathi parat yeto — he naate kharach strong ahe, jo tutata nahi ❤️
 </p>
 
 <p>
-Apan jast vela bhetlo nahi,
-pan je kahi moments ahet na —
-te mazya sathi khup special ahet…
-Holi 2025, palkhi, Rohat…
-Pratyek vel asa vatla ki time thambun java ❤️
+Apan jast vela bhetlo nahi —
+mostly 3 velach javal alo ahot…
+Pan je kahi moments ahet na — te mazya sathi khup khup special ahet.
 </p>
 
 <p>
-Tuzya sobat jeva bolto,
-jeva tuzya awaza aaikto,
-jeva tu hashates —
+Pahili vel — Holi 2025 la…
+Apan jast bolo nahi, fakt baju bajula ubhe hoto,
+pan tevha asa vatla hota ki to vel tithech stop houda aani mi tula bagat basava.
+</p>
+
+<p>
+Dusri vel — Palkhi la…
+Jast nahi pan atleast javal  alo — te pan devich ghevun ala asel!
+Mi fakt ubha hoto tithe, kaka bole devila hawa ghal,
+mag mi a tuzya ghari aalo 
+To divas kadhi visru nahi shkat mi.
+Apan first time jodini darshan ghetla — bhale indirectly — pan ghetlach!
+Aani nantr mummycha call ala, mag mi to kaka kade dila aani ghari gelo…
+He coincidence navhta — he devane dilela sanket hota, asa mala vatata ❤️
+</p>
+
+<p>
+Tisri vel — Rohat la…
+Tevha pan jast interaction nahi zala,
+pan tuzya sobat thoda sa ka hoine pan bolo, samora samor —
+tevha pan vatata hota ki time stop vhava aani apan bolat basava.
+Kharch yaar… te Moment Imagine  kartoy  ata pan 💫
+</p>
+
+<p>
+Ani hya vrshi pan palkhi la apan bhetlo hya veli sobat photo pan kadla
+To moment Kadhich visarnar nay mi Kay to divas hota yaar khrch best moment of 
+MY Life With My Life Partner Khrch yaar Khup Mast Vatlela Tevha 
+</P>
+<p>
+Tuzya sobat jeva bolto, jeva tuzya awaj aaikto, jeva tu hastes —
 tya weli sagla visarlya sarkha wata.
-Dunia ghari geli tari chalel,
+Duniya ghari geli tari chalel,
 pan tu sobat ashil tar kaahi nako.
 </p>
 
 <p>
 Aata pan kadhi kadhi asa vatat —
-tu mazya javal asavi,
-mi tuza haat dharava,
+tu mazya javal yavi,
+mi tuza haat pakadava,
 aani tuzya khandyavar doka thevun gappa marat basava…
-He sagla fakt imagine karto,
-pan ek divas he sagla kharach honar 💫
+Tu mazya dokya vrun haat firvshil…
+He sagla ata fakt imagine karto —
+pan hope karto ki lavkarach apan javal yeu aani hya long distance la kaymcha bye karu 💫
 </p>
 
 <p>
 Mi tuzya sobat future imagine kela ahe —
-aapla chota ghar,
-aapli choti family,
+aapla chota ghar, swatachi gaadi,
+aapli choti khush family,
 subah sobat chai peena,
-sandhyakali eka sobat firana,
-aani ek han khup khup happy life ❤️
+sandhyakali sobat firana,
+aani ek khup khup happy life ❤️
+Kharch yaar… khup jast wait kela ahe.
+Ek divas successful hotoy aani tuzya ghari yeto — tuza haat magayala 💍
 </p>
 
 <p>
-Apla pahila call 3 second cha hota,
-aani te 3 second kadhi 3 taas zhale samjlaach nahi…
-Aata asa vatat —
-screen var nahi,
-tar samor basun unlimited bolaycha ❤️
+Apla pahila call 3 seconds cha hota —
+aani te 3 seconds kadhi 3 taas zhale samjlach nahi…
+2024 Ganpati madhe apan VC var hoto 5 vajlya pasun te purna 8 — te 3 taas kase gele samjlach nahi.
+Tyacha record ahe apla — sobatach 2 taas cha call cha pan record ahe 😊
+Aata asa vatat — screen peksha samora basun unlimited bolaycha —
+te divas lavkarach yevu de ❤️
 </p>
 
 <p>
-I love you sooooooooo muchhhhhhhhh ❤️
-Kadhi vatla navhta ki tu mala pasant karshil…
-Pan tu mala accept kela —
+I love you sooooooooooo muchhhhhhhhhhh ❤️
+Mala kharach vatla navhta ki mala koni pasant karel —
+pan tu mala accept kela, mala pasant kelas —
 tya sathi khup khup thank you 💖
-Tuzhi khushi, tuzha aayushya, tuzha smile —
+Tuzhi khushi, tuzha smile, tuzha aayushya —
 he sagla maza aahe, hech majhe sarvkahi aahe.
 </p>
 
@@ -130,13 +154,19 @@ he sagla maza aahe, hech majhe sarvkahi aahe.
 Sorry mi tula kahi expensive gift deu shakat nahi…
 Pan ha chota sa prayatna —
 mazya pure heart madhun, mazya pure love madhun ahe ❤️
-Karan tu deserve kartes sagla.
+Hope karto ki tula ha avdel.
+Karan tu deserve kartes sagla, saglyapeksha jast.
 </p>
 
 <p class="ending">
 Wish You A Many Many Happy Returns Of The Day ❤️<br>
-My Love… My Best Friend… My Peace… My Future… 💍<br><br>
-Mazya sobat akha aayushya ghalvshil ka? ❤️
+My Love… My Best Friend… My Peace… My Future… My Wife… 💍<br><br>
+Tu fakt mazhi wife nahi —<br>
+tu ti vyakti ahes ji kayam mazya sobat ubhi ahe,<br>
+mala samjun ghetes,<br>
+aani aayushbhar sobat rahnari ahe…<br><br>
+I really really love you, Bayko ❤️<br><br>
+Mazya sobat akha aayushya ghalvshil ka? 💍
 </p>
 
 `;
