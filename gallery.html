@@ -45,9 +45,10 @@
       z-index: 0;
     }
 
+    /* ── PAGE TITLE ── */
     .page-title {
       text-align: center;
-      padding: 54px 20px 32px;
+      padding: 54px 20px 20px;
       position: relative;
       z-index: 1;
       animation: fadeUp 1.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -99,11 +100,119 @@
       transform: translate(-50%, -50%);
       font-size: 10px;
       color: rgba(201,169,110,0.55);
-      background: transparent;
       line-height: 1;
     }
 
-    /* GRID */
+    /* ── SPECIAL PHOTO SECTION ── */
+    .special-section {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px 10px;
+      animation: fadeUp 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .special-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.4rem, 5vw, 2.2rem);
+      color: transparent;
+      background: linear-gradient(135deg, #c9a96e, #fce8e4, #c9485b, #c9a96e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-size: 300%;
+      animation: shimmer 4s ease infinite;
+      text-align: center;
+      margin-bottom: 18px;
+      filter: drop-shadow(0 0 20px rgba(201,169,110,0.4));
+    }
+
+    .special-photo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .special-photo-frame {
+      position: relative;
+      display: inline-block;
+    }
+
+    .special-photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #c9a96e, #c9485b, #e8d5b0, #c9a96e);
+      background-size: 300%;
+      animation: borderShimmer 4s ease infinite;
+      z-index: 0;
+    }
+
+    @keyframes borderShimmer {
+      0%, 100% { background-position: 0%; }
+      50% { background-position: 100%; }
+    }
+
+    .special-photo-frame::after {
+      content: '';
+      position: absolute;
+      inset: -16px;
+      border-radius: 36px;
+      border: 1px solid rgba(201,169,110,0.15);
+      animation: ringPulse 3s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { opacity: 0.3; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.02); }
+    }
+
+    .special-photo {
+      position: relative;
+      z-index: 1;
+      width: min(320px, 85vw);
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 26px;
+      display: block;
+      box-shadow:
+        0 0 80px rgba(201,72,91,0.35),
+        0 0 160px rgba(201,72,91,0.15),
+        0 30px 80px rgba(0,0,0,0.85);
+      animation: photoFloat 5s ease-in-out infinite;
+      filter: brightness(1.05) saturate(1.15);
+    }
+
+    @keyframes photoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .special-caption {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+      color: rgba(247,214,208,0.65);
+      text-align: center;
+      padding: 14px 30px 0;
+      line-height: 2;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.3rem, 4.5vw, 2rem);
+      color: rgba(201,169,110,0.7);
+      text-align: center;
+      padding: 36px 20px 12px;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── GALLERY GRID ── */
     #gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -134,7 +243,7 @@
       z-index: 2;
     }
 
-    /* NEXT BUTTON */
+    /* ── NEXT BUTTON ── */
     .next-wrap {
       position: fixed;
       bottom: 26px;
@@ -171,7 +280,7 @@
       color: #fff;
     }
 
-    /* VIEWER */
+    /* ── VIEWER ── */
     #viewer {
       position: fixed;
       inset: 0;
@@ -272,15 +381,37 @@
       8%   { opacity: 0.75; }
       100% { transform: translateY(112vh) rotate(12deg); opacity: 0; }
     }
+
+    @media (max-width: 600px) {
+      #gallery { grid-template-columns: repeat(2, 1fr); }
+    }
   </style>
 </head>
 <body>
 
   <div class="page-title">
-    <h1>Our Memories 💝</h1>
+    <h1>Our Journey 💝</h1>
     <p class="sub">every photo, a moment i treasure forever</p>
     <div class="divider"></div>
   </div>
+
+  <!-- ✨ SPECIAL PHOTO SECTION -->
+  <div class="special-section">
+    <div class="special-label">✨ My Most Special Memory ✨</div>
+    <div class="special-photo-wrap">
+      <div class="special-photo-frame">
+        <img class="special-photo" src="Special.jpeg" alt="Us together">
+      </div>
+    </div>
+    <p class="special-caption">
+      Palkhi 2026 — pehli baar sobat photo kadla…<br>
+      to ek pal maza aayushbhar special rahil ❤️
+    </p>
+    <div class="divider" style="margin-top:28px;"></div>
+  </div>
+
+  <!-- Gallery heading -->
+  <div class="section-heading">Our Memories Together 🌸</div>
 
   <div id="gallery"></div>
 
@@ -288,6 +419,7 @@
     <button class="next-btn" onclick="goNext()">Read My Heart &nbsp;→</button>
   </div>
 
+  <!-- VIEWER -->
   <div id="viewer">
     <button class="close-btn" onclick="closeViewer()">✕</button>
     <img id="viewerImg" src="" alt="">

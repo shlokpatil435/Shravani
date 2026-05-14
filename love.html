@@ -35,9 +35,9 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(180,40,70,0.2) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(120,20,45,0.16) 0%, transparent 45%),
-        radial-gradient(ellipse 70% 40% at 50% 85%, rgba(180,120,60,0.1) 0%, transparent 45%),
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(180,40,70,0.25) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 80% 20%, rgba(120,20,45,0.2) 0%, transparent 45%),
+        radial-gradient(ellipse 70% 40% at 50% 85%, rgba(180,120,60,0.12) 0%, transparent 45%),
         radial-gradient(ellipse 100% 100% at 50% 50%, rgba(60,8,20,0.55) 0%, transparent 70%),
         linear-gradient(180deg, #0d0508 0%, #200a12 35%, #180710 65%, #0d0508 100%);
       pointer-events: none;
@@ -51,6 +51,20 @@
       background: radial-gradient(ellipse 140% 140% at 50% 50%, transparent 30%, rgba(0,0,0,0.65) 100%);
       pointer-events: none;
       z-index: 0;
+    }
+
+    /* Starfield */
+    .star {
+      position: fixed;
+      background: rgba(247,214,208,0.5);
+      border-radius: 50%;
+      animation: twinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.1; transform: scale(1); }
+      50%       { opacity: 0.9; transform: scale(1.5); }
     }
 
     #container {
@@ -76,39 +90,101 @@
       opacity: 0.8;
     }
 
-    #finalImage {
-      width: 80vw;
-      max-width: 340px;
-      height: 80vw;
-      max-height: 440px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 24px;
-      opacity: 0;
-      z-index: 5;
+    /* ── FINAL COUPLE PHOTO ── */
+    #finalPhotoWrap {
       position: relative;
-      transition: opacity 2.8s ease, transform 2.8s cubic-bezier(0.22, 1, 0.36, 1);
-      transform: scale(0.88);
-      box-shadow:
-        0 0 100px rgba(201,72,91,0.4),
-        0 0 200px rgba(201,72,91,0.15),
-        0 30px 80px rgba(0,0,0,0.8),
-        0 0 0 1px rgba(201,169,110,0.25);
+      z-index: 6;
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 3s ease, transform 3s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    #finalImage.visible {
+    #finalPhotoWrap.visible {
       opacity: 1;
       transform: scale(1);
-      animation: imageGlow 4s ease-in-out infinite 2.8s;
     }
 
-    @keyframes imageGlow {
-      0%, 100% { box-shadow: 0 0 100px rgba(201,72,91,0.4), 0 0 200px rgba(201,72,91,0.15), 0 30px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,169,110,0.25); }
-      50%       { box-shadow: 0 0 150px rgba(201,72,91,0.6), 0 0 280px rgba(201,72,91,0.22), 0 30px 80px rgba(0,0,0,0.8), 0 0 0 1px rgba(201,169,110,0.4); }
+    /* Gold gradient border */
+    #finalPhotoWrap::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #c9a96e, #c9485b, #e8d5b0, #c9a96e, #c9485b);
+      background-size: 400%;
+      animation: borderShimmer 4s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes borderShimmer {
+      0%, 100% { background-position: 0%; }
+      50% { background-position: 100%; }
+    }
+
+    /* Outer glow ring */
+    #finalPhotoWrap::after {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      border-radius: 40px;
+      border: 1px solid rgba(201,169,110,0.2);
+      animation: ringPulse 3s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { opacity: 0.2; transform: scale(1); box-shadow: 0 0 0 0 rgba(201,72,91,0); }
+      50% { opacity: 0.7; transform: scale(1.02); box-shadow: 0 0 40px 10px rgba(201,72,91,0.12); }
+    }
+
+    #finalImage {
+      width: min(280px, 78vw);
+      height: min(360px, 55vw);
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 26px;
+      display: block;
+      box-shadow:
+        0 0 100px rgba(201,72,91,0.5),
+        0 0 200px rgba(201,72,91,0.2),
+        0 30px 80px rgba(0,0,0,0.85);
+      animation: photoFloat 5s ease-in-out infinite;
+      filter: brightness(1.05) saturate(1.1);
+    }
+
+    @keyframes photoFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Heart badge */
+    .heart-badge {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--rose), var(--deep-rose));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 0 30px rgba(201,72,91,0.6);
+      animation: heartBeat 1.4s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.2); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.15); }
+      56% { transform: scale(1); }
     }
 
     #finalText {
-      margin-top: 32px;
+      margin-top: 36px;
       font-family: 'Dancing Script', cursive;
       font-size: clamp(1.4rem, 5.5vw, 2.5rem);
       font-weight: 700;
@@ -124,7 +200,7 @@
       line-height: 1.6;
       padding: 0 28px;
       min-height: 65px;
-      filter: drop-shadow(0 0 30px rgba(201,72,91,0.3));
+      filter: drop-shadow(0 0 30px rgba(201,72,91,0.35));
     }
 
     @keyframes shimmer {
@@ -142,8 +218,29 @@
 </head>
 <body>
 
+  <!-- Starfield -->
+  <script>
+    for(let i = 0; i < 70; i++){
+      const s = document.createElement("div");
+      s.className = "star";
+      s.style.left = Math.random()*100 + "vw";
+      s.style.top  = Math.random()*100 + "vh";
+      s.style.setProperty("--d", (2 + Math.random()*4) + "s");
+      s.style.setProperty("--delay", (-Math.random()*4) + "s");
+      const size = (1 + Math.random()*2) + "px";
+      s.style.width = size;
+      s.style.height = size;
+      document.body.appendChild(s);
+    }
+  </script>
+
   <div id="container"></div>
-  <div id="finalImage"></div>
+
+  <div id="finalPhotoWrap">
+    <img id="finalImage" src="" alt="Us together">
+    <div class="heart-badge">💕</div>
+  </div>
+
   <div id="finalText"></div>
 
   <script>
@@ -183,10 +280,11 @@
 
     setTimeout(() => { photos.forEach(p => p.remove()); }, 8000);
 
+    // Show our special couple photo
     setTimeout(() => {
-      let finalImg = document.getElementById("finalImage");
-      finalImg.style.backgroundImage = "url('special.jpeg')";
-      finalImg.classList.add("visible");
+      const imgEl = document.getElementById("finalImage");
+      imgEl.src = "Special.jpeg";
+      document.getElementById("finalPhotoWrap").classList.add("visible");
     }, 7200);
 
     setTimeout(() => {
